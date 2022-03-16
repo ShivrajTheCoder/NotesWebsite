@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Form</title>
+</head>
+<body>
+    <h1> <%= note.title  %>  </h1>
+    <form action="/mynotes/<%=note._id%>?_method=PUT" method="POST">
+        <label for="title">Enter the title</label>
+        <input type="text" id="title" name="title" value="<%= note.title %> ">
+        <hr>   
+        <label for="content">Note</label>
+        <br>
+        <textarea name="content" id="content" cols="30" rows="10"> <%= note.content %>  </textarea>
+        <br>
+    <button>Edit</button>
+    </form>
+</body>
+</html>
