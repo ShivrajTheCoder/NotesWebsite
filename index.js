@@ -2,6 +2,7 @@ const express=require("express");
 const app=express();
 const mongoose = require('mongoose');
 const methodOverride=require("method-override");
+const path=require("path");
 
 main().then(() => {
     console.log("Connected!!");
@@ -16,6 +17,7 @@ async function main() {
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname ,'/public')));
 
 const notesSchema=mongoose.Schema({
     title:{
